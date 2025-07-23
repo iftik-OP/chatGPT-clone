@@ -1,5 +1,4 @@
 import 'package:chat_gpt_clone/screens/chat_screen.dart';
-import 'package:chat_gpt_clone/services/mongo_service.dart';
 import 'package:flutter/material.dart';
 import 'consts/app_colors.dart';
 import 'package:provider/provider.dart';
@@ -28,7 +27,6 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.dark(
             primary: AppColors.primary,
             secondary: AppColors.surface,
-            background: AppColors.scaffoldBackground,
             surface: AppColors.surface,
           ),
           appBarTheme: const AppBarTheme(

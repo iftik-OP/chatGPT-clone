@@ -74,4 +74,26 @@ class ChatGPTService {
       throw Exception('Failed to get image analysis: ${response.body}');
     }
   }
+
+  Future<bool> testConnection() async {
+    try {
+      final response = await http.post(
+        Uri.parse(_baseUrl),
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer $_apiKey',
+        },
+        body: jsonEncode({
+          'model': 'gpt-3.5-turbo',
+          'messages': [
+            {'role': 'user', 'content': 'Hello'}
+          ],
+          'max_tokens': 5,
+        }),
+      );
+      return response.statusCode == 200;
+    } catch (e) {
+      return false;
+    }
+  }
 } 
